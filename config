@@ -1,120 +1,116 @@
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /Users/heyongqi10/Library/Application Support/com.mitchellh.ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
-# Run `ghostty +show-config --default --docs` to view a list of
-# all available config options and their default values.
-#
-# Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
-#
-# Ghostty can reload the configuration while running by using the menu
-# options or the bound key (default: Command + Shift + comma on macOS and
-# Control + Shift + comma on other platforms). Not all config options can be
-# reloaded while running; some only apply to new windows and others may require
-# a full restart to take effect.
+# ==============================================
+# Ghostty 终端配置文件
+# 重载配置：Command + Shift + ,
+# ==============================================
 
-# Config syntax crash course
-# ==========================
-# # The config file consists of simple key-value pairs,
-# # separated by equals signs.
-# font-family = Iosevka
-# window-padding-x = 2
-#
-# # Spacing around the equals sign does not matter.
-# # All of these are identical:
-# key=value
-# key= value
-# key =value
-# key = value
-#
-# # Any line beginning with a # is a comment. It's not possible to put
-# # a comment after a config option, since it would be interpreted as a
-# # part of the value. For example, this will have a value of "#123abc":
-# background = #123abc
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
-
+# ===================== 字体与渲染 =====================
+# 字体名称（必须是系统已安装的字体）
 font-family = JetBrainsMonoNerdFont
+# 字体大小
 font-size = 18
+# 字体轻微加粗，提升清晰度
 font-thicken = true
+# 调整字符高度，优化显示间距
 adjust-cell-height = 2
 
-
+# ===================== 主题与外观 =====================
+# 自动切换主题：浅色使用 Catppuccin Latte，深色使用 Catppuccin Mocha
 theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 
-
+# 背景透明度（0-1，1为完全不透明）
 background-opacity = 0.9
+# 背景模糊半径（macOS 毛玻璃效果）
 background-blur-radius = 20
+# macOS 标题栏样式：透明无边框
 macos-titlebar-style = transparent
+# 窗口左右内边距
 window-padding-x = 10
+# 窗口上下内边距
 window-padding-y = 8
+# 始终保存窗口状态（大小/位置）
 window-save-state = always
+# 窗口主题跟随系统自动切换浅色/深色
 window-theme = auto
 
-
+# ===================== 光标样式 =====================
+# 光标样式：竖线（bar）/ 方块（block）/ 下划线（underline）
 cursor-style = bar
+# 光标开启闪烁
 cursor-style-blink = true
 
-
+# ===================== 鼠标与剪贴板 =====================
+# 打字时自动隐藏鼠标
 mouse-hide-while-typing = true
+# 选中文本自动复制到系统剪贴板
 copy-on-select = clipboard
 
-
-quick-terminal-position = top
-quick-terminal-screen = mouse
-quick-terminal-autohide = true
-quick-terminal-animation-duration = 0.15
-
-
+# 粘贴保护：防止恶意脚本自动执行
 clipboard-paste-protection = true
+#  bracketed 模式安全粘贴，兼容 shell
 clipboard-paste-bracketed-safe = true
 
+# ===================== 快速终端（悬浮终端） =====================
+# 悬浮终端显示位置：顶部
+quick-terminal-position = top
+# 悬浮终端出现在鼠标所在屏幕
+quick-terminal-screen = mouse
+# 失去焦点自动隐藏悬浮终端
+quick-terminal-autohide = true
+# 悬浮终端动画时长（秒）
+quick-terminal-animation-duration = 0.15
 
+# ===================== Shell 集成 =====================
+# 自动检测并启用 shell 集成（zsh/bash/fish）
 shell-integration = detect
 
-
+# ===================== 快捷键：标签页 =====================
+# 新建标签
 keybind = cmd+t=new_tab
+# 上一个标签
 keybind = cmd+shift+left=previous_tab
+# 下一个标签
 keybind = cmd+shift+right=next_tab
+# 关闭标签/分屏
 keybind = cmd+w=close_surface
 
-
+# ===================== 快捷键：分屏 =====================
+# 右侧新建分屏
 keybind = cmd+d=new_split:right
+# 下方新建分屏
 keybind = cmd+shift+d=new_split:down
+# 切换到左侧分屏
 keybind = cmd+alt+left=goto_split:left
+# 切换到右侧分屏
 keybind = cmd+alt+right=goto_split:right
+# 切换到上方分屏
 keybind = cmd+alt+up=goto_split:top
+# 切换到下方分屏
 keybind = cmd+alt+down=goto_split:bottom
 
-
+# ===================== 快捷键：字体大小 =====================
+# 增大字体
 keybind = cmd+plus=increase_font_size:1
+# 减小字体
 keybind = cmd+minus=decrease_font_size:1
+# 重置字体大小
 keybind = cmd+zero=reset_font_size
 
-
+# ===================== 快捷键：分屏管理 =====================
+# 等分所有分屏宽度/高度
 keybind = cmd+shift+e=equalize_splits
+# 切换分屏最大化/还原
 keybind = cmd+shift+f=toggle_split_zoom
 
-
+# ===================== 快捷键：配置 =====================
+# 手动重载配置文件
 keybind = cmd+shift+comma=reload_config
 
-
+# ===================== 滚动与缓存 =====================
+# 最大滚动回滚缓冲区大小（字节）
 scrollback-limit = 25000000
 
-
+# ===================== 工作目录 =====================
+# 启动默认工作目录
 working-directory = ~/Workspace
+# 新窗口不继承当前工作目录（使用默认工作目录）
 window-inherit-working-directory = false
