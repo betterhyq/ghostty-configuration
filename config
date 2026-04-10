@@ -7,7 +7,7 @@
 # 字体名称（必须是系统已安装的字体）
 font-family = JetBrainsMonoNerdFont
 # 字体大小
-font-size = 18
+font-size = 22
 # 字体轻微加粗，提升清晰度
 font-thicken = true
 # 调整字符高度，优化显示间距
